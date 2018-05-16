@@ -1,0 +1,7 @@
+<% @messages.each do |message| %>
+<div class="message-image" >
+  <%= image_tag message.user.image  %>
+  <%=message.user.name %>
+</div>
+<p><%= message.body %></p>
+<% end %>

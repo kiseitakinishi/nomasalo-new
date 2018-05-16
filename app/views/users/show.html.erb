@@ -1,0 +1,47 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info" >
+       <%= image_tag @user.image, class: "profile" %>
+        <h1>
+          <%= @user.name %>
+        </h1>
+      <ul>
+        <li><%= (@star/@reviews.count).round(1) %></li>
+        <li><%= @user.email %></li>
+        <li><%= @user.sex %></li>
+        <li><%= @user.age.strftime("%Y-%m-%d") %></li>
+        <li><%= country_name(@user.country) if !@user.country.nil? %></li>
+      </ul>
+      <p><%= link_to "Post your plan", new_post_path ,class:"btn btn-block btn-info" %></p>
+      <p><%= link_to "Edit your information", edit_user_path(current_user),class:"btn btn-block btn-success"%></p>
+      <p><%= link_to "Send message to her/him", message_path(@user.id) ,class:"btn btn-block btn-primary" %></p>
+    </section>
+  </aside>
+</div>
+
+<%= form_for @review do |f| %>
+
+ <%= f.hidden_field :user_id, value: current_user.id %>
+ <%= f.hidden_field :receiver_id, value: params[:id] %>
+
+<div class="col-md-6 col-md-offset-3">
+
+        <div class="field" id="star">
+            <%= f.label :star %>
+            <%= f.hidden_field :star, id: :review_star %>
+          </div>
+
+         <%= f.text_area :comment, :class => "form-control", :size => "50x20"  %><br>
+         <%= f.submit "review", :class => "btn btn-primary" %>
+
+ </div>
+<% end %>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'review[star]'
+});
+</script>
