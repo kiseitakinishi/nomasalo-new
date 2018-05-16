@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'home#top'
+  root 'homes#top'
 
   get  '/signup',  to: 'users#new'
   post '/signup', to: 'users#create'
