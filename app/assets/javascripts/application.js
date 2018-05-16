@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-//= require data-confirm-modal
 
 /*!
  * jQuery Raty - A Star Rating Plugin
