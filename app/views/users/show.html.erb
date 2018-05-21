@@ -6,7 +6,13 @@
           <%= @user.name %>
         </h1>
       <ul>
-        <li><%= (@star/@reviews.count).round(1) %></li>
+        <li>
+          <% if @reviews.count == 0 %>
+            <p>not reviewed yet</p>
+          <% else %>
+           <p><%= (@star/@reviews.count).round(1) %></p>
+          <% end %>
+        </li>
         <li><%= @user.email %></li>
         <li><%= @user.sex %></li>
         <li><%= @user.age.strftime("%Y-%m-%d") %></li>
