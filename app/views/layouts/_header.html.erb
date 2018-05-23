@@ -1,9 +1,9 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
 
   <% if logged_in? %>
-  <%= link_to "Nomasalo", "posts_path", class: "navbar-brand" %>
+  <%= link_to "Nomasalo", posts_path, class: "navbar-brand" %>
   <% else %>
-    <%= link_to "Nomasalo","/", class: "navbar-brand" %>
+    <%= link_to "Nomasalo",root_path, class: "navbar-brand" %>
   <% end %>
 
   <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -17,14 +17,14 @@
             <%= link_to @current_user.name , user_path(id:current_user) , class: "navbar-link" %>
           </li>
           <li class="navbar-item">
-            <p><%= link_to "Log-out", "logout_path", method: :delete ,class: "navbar-link" %></p>
+            <p><%= link_to "Log-out", logout_path, method: :delete ,class: "navbar-link" %></p>
           </li>
           <% else %>
           <li class="navbar-item">
-            <%= link_to "Sign-up", "signup_path" , class: "navbar-link"  %>
+            <%= link_to "Sign-up", signup_path , class: "navbar-link"  %>
           </li>
             <li class="navbar-item">
-              <%= link_to "Log-in", "login_path" , class: "navbar-link"  %>
+              <%= link_to "Log-in", login_path , class: "navbar-link"  %>
             </li>
       <% end %>
     </ul>
