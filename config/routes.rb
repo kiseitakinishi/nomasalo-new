@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   post '/reviews', to: 'reviews#create'
 
-  # get '/auth/:provider/callback',    to: 'users#create',       as: :auth_callback
-  # get '/auth/failure',               to: 'users#auth_failure', as: :auth_failure
+  get '/auth/:provider/callback',    to: 'users#create',       as: :auth_callback
+  get '/auth/failure',               to: 'users#auth_failure', as: :auth_failure
 
   resources :posts
   resources :messages
