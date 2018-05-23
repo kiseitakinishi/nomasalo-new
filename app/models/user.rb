@@ -18,12 +18,12 @@ class User < ApplicationRecord
       if user.blank?
         user = User.new
       end
-    user.uid   = auth.uid
-    user.name  = auth.info.name
-    user.email = auth.info.email
-    user.icon  = auth.info.image
-    user.oauth_token      = auth.credentials.token
-    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-    user
+      user.uid   = auth.uid
+      user.name  = auth.info.name
+      user.email = auth.info.email
+      user.image  = auth.info.image
+      user.oauth_token      = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user
     end
 end
